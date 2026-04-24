@@ -1,7 +1,9 @@
 # Instagram Reels Generator - Setup Guide
 
 ## Overview
-This automation tool reads text from your Google Spreadsheet and creates 9-second vertical Instagram Reels (9:16 ratio) with your Canva design template.
+This automation tool uses **Google Workspace MCP** to read text from your Google Spreadsheet and creates 9-second vertical Instagram Reels (9:16 ratio) with your Canva design template.
+
+**Advantage**: No authentication setup needed! Uses your existing Google Workspace account via MCP.
 
 ## Prerequisites
 
@@ -11,28 +13,19 @@ This automation tool reads text from your Google Spreadsheet and creates 9-secon
 - Choose **PNG** format
 - Save as `canva_template.png` in this project directory
 
-### 2. Set Up Google Cloud Authentication
+### 2. Google Workspace Setup (Using MCP)
+No authentication needed! The system uses Google Workspace MCP which automatically handles authentication:
+- Your Google account (gabriel@unbreakablemind.co) is already authenticated
+- Claude Code will use MCP tools to read/write from Google Drive
+- All files are accessed via your existing permissions
 
-#### Option A: Using Service Account (Recommended for automation)
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable APIs:
-   - Google Sheets API
-   - Google Drive API
-4. Create a Service Account:
-   - Go to **Service Accounts**
-   - Click **Create Service Account**
-   - Download JSON key file
-5. Save the JSON key as `google_credentials.json` in this directory
+### 3. Identify Your Google Spreadsheet
+Locate the spreadsheet containing your Instagram Reel text:
+- **Spreadsheet URL format**: `https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/edit`
+- Extract the ID between `/d/` and `/edit`
+- Example: `1iV-q-GmyS8K8_kQ-CGGQJwrOQdPAKyrE0SptuE7NF-c`
 
-#### Option B: Using OAuth2 (Interactive)
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create OAuth 2.0 credentials (Desktop application)
-3. Download the JSON file as `client_secrets.json`
-
-### 3. Share Your Google Spreadsheet
-- Share the spreadsheet with your service account email (from the JSON file)
-- Or ensure it's accessible to your Google account
+Update `SPREADSHEET_ID` in the Python script with your ID
 
 ## Spreadsheet Format
 
@@ -76,11 +69,14 @@ Download from https://ffmpeg.org/download.html or use:
 choco install ffmpeg
 ```
 
-### Step 3: Configure Spreadsheet ID
-Edit `instagram_reels_generator.py` and update:
+### Step 3: Update Your Spreadsheet ID
+Edit `instagram_reels_generator.py`:
+
 ```python
-SPREADSHEET_ID = "your-spreadsheet-id-here"
+SPREADSHEET_ID = "1iV-q-GmyS8K8_kQ-CGGQJwrOQdPAKyrE0SptuE7NF-c"  # ← Update this
 ```
+
+Replace with your actual spreadsheet ID (see prerequisite step 3 for how to find it)
 
 ## Usage
 
