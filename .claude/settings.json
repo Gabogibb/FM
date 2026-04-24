@@ -1,0 +1,10 @@
+{
+  "sandbox": {
+    "network": {
+      "allowedDomains": [
+        "docs.google.com",
+        "*.google.com"
+      ]
+    }
+  }
+}
