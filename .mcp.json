@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "google-drive": {
+      "command": "npx",
+      "args": [
+        "@anthropic-ai/sdk@latest",
+        "mcp",
+        "google-drive"
+      ]
+    },
+    "google-sheets": {
+      "command": "npx",
+      "args": [
+        "@anthropic-ai/sdk@latest",
+        "mcp",
+        "google-sheets"
+      ]
+    }
+  }
+}

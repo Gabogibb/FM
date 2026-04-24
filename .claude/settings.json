@@ -6,5 +6,10 @@
         "*.google.com"
       ]
     }
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "google-drive",
+    "google-sheets"
+  ]
 }
