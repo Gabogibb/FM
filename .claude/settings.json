@@ -3,7 +3,11 @@
     "network": {
       "allowedDomains": [
         "docs.google.com",
-        "*.google.com"
+        "*.google.com",
+        "*.canva.com",
+        "export-download.canva.com",
+        "document-export.canva.com",
+        "design.canva.ai"
       ]
     }
   },
